@@ -1,0 +1,23 @@
+<ion-header >
+  <ion-toolbar class="head">
+    <ion-img class="logo" src="../../assets/SuperSuper_logo.png"></ion-img>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>トップページ</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="content">
+  <ion-img src="../../assets/supermarket.jpg"></ion-img>
+  <form class="ion-padding" (submit)="navigate()">
+    <ion-item lines="full" class="ion-padding-bottom">
+      <ion-label position="floating">店舗名</ion-label>
+      <ion-input type="text" [(ngModel)]="shop" name="shop"></ion-input>
+    </ion-item>
+    <ion-button expand="block" color="danger" type="submit">検索</ion-button>
+  </form>
+  <form class="ion-padding" id="for-owner">
+    <ion-button expand="block" color="warning" routerDirection="root" routerLink="/login">オーナ向け店舗編集はこちら</ion-button>
+  </form>
+</ion-content>

@@ -1,0 +1,37 @@
+<ion-header >
+  <ion-toolbar class="head">
+    <ion-img class="logo" src="../../assets/SuperSuper_logo.png"></ion-img>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>店舗ページ</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="content">
+  <table border="1" class="map">
+    <tr *ngFor="let r of mapNum">
+      <td *ngFor="let d of mapNum">
+        <div [class]="mapCla[(r*16)+d]" [id]="'id'+r+d">{{beaNum[(r*16)+d]}}</div>
+      </td>
+    </tr>
+  </table>
+
+  <form class="ion-padding">
+    <ion-item lines="full" class="ion-padding-bottom">
+      <ion-label position="floating">探しているアイテム名</ion-label>
+      <ion-input type="text" [(ngModel)]="item" name="item"></ion-input>
+    </ion-item>
+    <ion-button color="warning" expand="block" id="search">検索</ion-button>
+  </form>
+  <div *ngIf="result" id="result">{{item}}は{{itemNum}}{{area}}</div>
+  <form class="ion-padding">
+    <ion-button color="medium" expand="block" id="search" (click)="onWhere()">Where am I?</ion-button>
+    <ion-button color="medium" expand="block" id="BLE" (click)="onBLE()">BLE</ion-button>
+  </form>
+  <div id="BLE_div">{{bleContents}}</div>
+
+  <form>
+    <ion-button color="danger" expand="block" id="voucher">クーポン</ion-button>
+  </form>
+</ion-content>

@@ -1,0 +1,41 @@
+<ion-header >
+  <ion-toolbar class="head">
+    <ion-img class="logo" src="../../assets/SuperSuper_logo.png"></ion-img>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>店舗編集ページ</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="content">
+  <table border="1" class="map">
+    <tr *ngFor="let r of mapNum">
+      <td *ngFor="let d of mapNum">
+        <div [class]="mapCla[(r*16)+d]" [id]="'id:'+r+':'+d" (click)="onClick($event)">{{beaNum[(r*16)+d]}}</div>
+      </td>
+    </tr>
+  </table>
+
+  <form class="ion-padding" id="plot">
+    <ion-button color="dark" (click)="onMap()">マッピング</ion-button>
+    <ion-button color="light" (click)="onDel()">消しゴム</ion-button>
+  </form>
+  <form>
+    <ion-button color="danger" id="beacon" (click)="onBea()">ビーコン</ion-button>
+    <ion-item lines="full" class="ion-padding-bottom">
+      <ion-label>Beacon No.</ion-label>
+      <ion-input type="number" [(ngModel)]="beacon" name="beacon"></ion-input>
+    </ion-item>
+    <ion-button color="warning" expand="block" (click)="registMap()">マップ登録</ion-button>
+  </form>
+  <form>
+    <ion-item lines="full">
+      <ion-label position="stacked">登録アイテム名</ion-label>
+      <ion-input type="text" [(ngModel)]="item" name="item"></ion-input>
+      <ion-label position="stacked">付近のBeacon No.</ion-label>
+      <ion-input type="number" [(ngModel)]="beaconPos" name="beaconPos"></ion-input>
+    </ion-item>
+    <ion-button color="danger" expand="block">アイテム登録</ion-button>
+  </form>
+</ion-content>

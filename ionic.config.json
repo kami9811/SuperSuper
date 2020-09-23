@@ -1,0 +1,8 @@
+{
+  "name": "SuperSuper",
+  "integrations": {
+    "capacitor": {},
+    "cordova": {}
+  },
+  "type": "angular"
+}
